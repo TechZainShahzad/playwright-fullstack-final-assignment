@@ -1,0 +1,6 @@
+{
+  "name": "Testing Name",
+  "email": "Test@checking.com",
+  "subject": "Testing automation flow is the subject",
+  "message": "This is the complete description of automation testing with playwright"
+}
