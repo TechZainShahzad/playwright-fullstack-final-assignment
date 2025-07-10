@@ -1,0 +1,20 @@
+{
+  "productName": "Blue Top",
+  "quantity": "7",
+  "address": {
+    "name": "Mr. Zain Shahzad",
+    "company": "Testing",
+    "street": "Testing street",
+    "cityStateZip": "Test city Test state 123",
+    "country": "United States",
+    "mobile": "741258963"
+  },
+  "message": "Happy flow testing!",
+  "payment": {
+    "nameOnCard": "Zain Tester",
+    "cardNumber": "999999999999",
+    "cvc": "999",
+    "expiryMonth": "09",
+    "expiryYear": "2029"
+  }
+}
