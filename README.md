@@ -1,96 +1,97 @@
-```markdown
-# Playwright Fullstack Final Assignment
+**Playwright Fullstack Final Assignment**
 
-This project is a comprehensive end-to-end test automation suite using **Playwright** with **TypeScript**, covering both UI and API testing.
+This project is a comprehensive end-to-end automation suite built with **Playwright + TypeScript**, covering both **UI testing** of [AutomationExercise.com](https://automationexercise.com) and **API testing** using [Reqres.in](https://reqres.in).
 
-- **UI Automation** targets the [Automation Exercise](https://automationexercise.com) website  
-- **API Testing** targets the [Reqres.in](https://reqres.in) public REST API  
-
-This assignment demonstrates advanced automation practices including modular design, data-driven tests, and CI/CD integration with GitHub Actions.
+It showcases modern automation practices like Page Object Model, reusable utilities, CI/CD via GitHub Actions, and clear test modularization.
 
 ---
 
-## 📁 Project Structure
+**🔹 Project Structure**
 
-```
+* `api/data` – API test data (e.g. JSON payloads)
 
-.
-├── api/
-│   ├── data/          # Test data files for API tests (JSON etc.)
-│   ├── tests/         # API test files
-│   └── utils/         # API helper functions and reusable clients
-│
-├── ui/
-│   ├── data/          # Test data for UI tests (test users, products, etc.)
-│   ├── pages/         # Page Object Model classes for UI elements & flows
-│   └── tests/         # UI test cases
-│
-├── .github/workflows/ # GitHub Actions CI/CD pipeline
-├── playwright.config.ts  # Playwright test configuration
-├── package.json
-└── README.md
+* `api/tests` – API test cases (GET, POST, PUT, DELETE)
 
-````
+* `api/utils` – Shared clients and helper functions (e.g. for storing user ID)
+
+* `ui/data` – UI test input (e.g. user credentials, test values)
+
+* `ui/pages` – Page Object Model classes for UI flows
+
+* `ui/tests` – UI test cases for login, cart, checkout, etc.
+
+* `.github/workflows/` – GitHub Actions pipeline config
+
+* `playwright.config.ts` – Playwright configuration (browser, tracing, reports)
+
+* `package.json` – Dependencies and test scripts
 
 ---
 
-## 🎯 UI Test Cases Covered
+**🧪 UI Test Cases**
 
-- **Card Add:** Add products to cart and validate cart contents  
-- **Card Quantity:** Validate changing quantities updates cart totals correctly  
-- **Checkout Happy Flow:** Full checkout flow with successful order placement  
-- **Contact:** Submit contact form and verify success message  
-- **Login:** User login flow validation  
-- **Signup/Register User:** New user registration flow  
-- **Product Search:** Search functionality and result validation  
-- **Product:** Product details and navigation testing  
-- **Subscription on Cart Page:** Validate subscription feature on cart page  
-- **Subscription on Homepage:** Validate homepage subscription signup  
+All UI flows are built using the **Page Object Model** and include assertions, screenshots, and video recording (in CI).
 
-All UI tests use Page Object Model (POM) for maintainability and reuse.
-
----
-
-## 🔗 API Tests Covered
-
-- **GET** List users (page 2)  
-- **GET** Single user by ID  
-- **POST** Create user  
-- **PUT** Update user by ID  
-- **DELETE** Delete user by ID  
-
-Tests share data dynamically using utility modules for ID passing and environment management.
+* Add product to cart
+* Update cart quantity
+* Checkout happy path (guest user)
+* Submit contact form
+* Login with existing user
+* Signup / Register new user
+* Search for a product
+* View individual product details
+* Subscribe from cart page
+* Subscribe from homepage
 
 ---
 
-## ⚙️ Running Tests Locally
+**🔌 API Test Cases**
 
-1. **Install dependencies**
+The Reqres public API is used to demonstrate CRUD operations:
+
+* **GET** Users List (page 2)
+* **GET** Single User (ID = 2)
+* **POST** Create a new user
+* **PUT** Update the newly created user
+* **DELETE** Delete the created user
+
+User ID is shared dynamically between POST → PUT → DELETE using utility functions.
+
+---
+
+**🚀 How to Run Tests**
+
+Install dependencies:
 
 ```bash
 npm ci
-````
+```
 
-2. **Install Playwright browsers**
+Install Playwright browsers:
 
 ```bash
 npx playwright install --with-deps
 ```
 
-3. **Run all tests**
+Run all tests:
 
 ```bash
 npx playwright test
 ```
 
-4. **Run only UI or API tests**
+Run only UI tests:
 
 ```bash
 npx playwright test ui/tests
+```
+
+Run only API tests:
+
+```bash
 npx playwright test api/tests
 ```
 
-5. **View HTML test report**
+Show the HTML test report:
 
 ```bash
 npx playwright show-report
@@ -98,20 +99,31 @@ npx playwright show-report
 
 ---
 
-## 🛠 Configuration
+**⚙️ GitHub Actions CI/CD**
 
-* `playwright.config.ts` includes settings for browsers, headless mode, screenshots, video, and traces
-* Report generated as HTML under `playwright-report/` folder
-* Tests configured to run with retries, parallelism, and trace collection enabled
+The project runs automated tests on every push or PR to the `master` branch using GitHub Actions.
+
+CI/CD Steps:
+
+* Checkout code
+* Install dependencies
+* Install Playwright browsers
+* Run all tests in headless mode
+* Upload test report artifact
+
+Test report is saved in `playwright-report/` and available under the **Actions** tab.
 
 ---
 
-## 🚀 CI/CD Integration
+**🛠 Features**
 
-* GitHub Actions pipeline runs on pushes and pull requests to `main`
-* Uses Ubuntu runner with Node.js 18
-* Installs dependencies, Playwright browsers, and runs all tests headlessly
-* Uploads HTML report artifacts for easy access on GitHub UI
+* TypeScript + Playwright native test runner
+* Page Object Model for UI
+* Modular API utilities
+* Automatic screenshots, video, and trace collection
+* Separate UI and API test folders
+* HTML test reporting
+* GitHub Actions pipeline for continuous testing
 
 ---
 
@@ -128,8 +140,4 @@ npx playwright show-report
 ## 📝 Author
 
 **Zain Shahzad**
-Final Automation POC Project — thanks to OpenAI ChatGPT for support!
-
----
-
-Feel free to request any additions like contribution guidelines, troubleshooting tips, or environment variable documentation!
+Final Automation POC Project!
