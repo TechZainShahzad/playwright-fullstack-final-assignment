@@ -4,6 +4,8 @@ This project is a comprehensive end-to-end automation suite built with **Playwri
 
 It showcases modern automation practices like Page Object Model, reusable utilities, CI/CD via GitHub Actions, and clear test modularization.
 
+https://github.com/user-attachments/assets/838ae277-f142-434d-9a6e-b6a2cb5aa537
+
 ---
 
 **🔹 Project Structure**
