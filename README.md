@@ -1,4 +1,4 @@
-#**Playwright Fullstack Final Assignment**
+# **Playwright Fullstack Final Assignment**
 
 This project is a comprehensive end-to-end automation suite built with **Playwright + TypeScript**, covering both **UI testing** of [AutomationExercise.com](https://automationexercise.com) and **API testing** using [Reqres.in](https://reqres.in).
 
